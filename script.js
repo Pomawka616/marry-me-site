@@ -47,7 +47,7 @@ const showApp = async () => {
   elements.app.removeAttribute("aria-hidden");
   elements.app.classList.add("is-ready");
   await wait(450);
-  await typeText(elements.lineOne, "Привет, солнышко ❤️", 46);
+  await typeText(elements.lineOne, "Привет, лисенок ❤️", 46);
   await wait(260);
   await typeText(elements.lineTwo, "У меня есть один очень важный вопрос...", 36);
   elements.questionTitle.classList.add("is-visible");
