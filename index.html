@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffd9e8" />
+    <meta
+      name="description"
+      content="Нежный интерактивный сайт-предложение руки и сердца с котиками, стикерами и романтичными анимациями."
+    />
+    <title>Ты выйдешь за меня?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <div class="loader" id="loader" aria-live="polite">
+      <div class="loader__halo"></div>
+      <div class="kitty kitty--loader" aria-hidden="true">
+        <span class="kitty__ear kitty__ear--left"></span>
+        <span class="kitty__ear kitty__ear--right"></span>
+        <span class="kitty__face">
+          <span class="kitty__eye kitty__eye--left"></span>
+          <span class="kitty__eye kitty__eye--right"></span>
+          <span class="kitty__nose"></span>
+          <span class="kitty__mouth"></span>
+          <span class="kitty__paw kitty__paw--wave"></span>
+        </span>
+      </div>
+      <p class="loader__text type-target" data-loader-text="Подожди секундочку... Я очень волнуюсь 🥺💕"></p>
+    </div>
+
+    <main class="app" id="app" aria-hidden="true">
+      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+        <span class="music-toggle__icon">♪</span>
+        <span class="music-toggle__text">Музыка</span>
+      </button>
+
+      <section class="hero" id="hero">
+        <div class="float-layer" id="floatLayer" aria-hidden="true"></div>
+        <div class="sticker sticker--kitty">Hello<br />Kitty</div>
+        <div class="sticker sticker--kuromi">Kuromi<br />mood</div>
+        <div class="sticker sticker--melody">My<br />Melody</div>
+
+        <div class="proposal-shell" data-parallax="0.04">
+          <div class="proposal-card">
+            <div class="shark-cat" aria-label="Милый рыжий котик в костюме акулы">
+              <div class="shark-cat__fin"></div>
+              <div class="shark-cat__hood">
+                <span class="shark-cat__dot"></span>
+                <div class="shark-cat__face">
+                  <span class="shark-cat__stripe shark-cat__stripe--one"></span>
+                  <span class="shark-cat__stripe shark-cat__stripe--two"></span>
+                  <span class="shark-cat__eye shark-cat__eye--left"></span>
+                  <span class="shark-cat__eye shark-cat__eye--right"></span>
+                  <span class="shark-cat__nose"></span>
+                  <span class="shark-cat__mouth"></span>
+                </div>
+              </div>
+              <div class="shark-cat__body">
+                <span class="shark-cat__paw shark-cat__paw--left"></span>
+                <span class="shark-cat__paw shark-cat__paw--right"></span>
+                <span class="shark-cat__foot shark-cat__foot--left"></span>
+                <span class="shark-cat__foot shark-cat__foot--right"></span>
+              </div>
+            </div>
+
+            <div class="proposal-copy">
+              <p class="proposal-line" id="lineOne"></p>
+              <p class="proposal-line proposal-line--soft" id="lineTwo"></p>
+              <h1 class="proposal-title" id="questionTitle">💍 Ты выйдешь за меня?</h1>
+            </div>
+
+            <div class="actions" id="proposalActions">
+              <button class="btn btn--yes" id="yesButton" type="button">💖 Да</button>
+              <button class="btn btn--no" id="noButton" type="button">😾 Нет</button>
+            </div>
+            <p class="tiny-status" id="noStatus" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="celebration section" id="celebration" hidden>
+        <div class="section__inner">
+          <div class="joy-cat" aria-hidden="true">🐱💞</div>
+          <h2>💖 УРАААААААААААААА 💖</h2>
+          <p>Я так счастлив ❤️</p>
+          <div class="spark-ring" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="date-section section" id="dateSection" hidden>
+        <div class="section__inner">
+          <span class="section-kicker">наш будущий день</span>
+          <h2>Выбери дату регистрации брака</h2>
+          <p class="section-text">Пусть это будет первая маленькая точка на карте нашей большой истории.</p>
+          <label class="date-picker">
+            <span>Дата</span>
+            <input id="weddingDate" type="date" />
+          </label>
+        </div>
+      </section>
+
+      <section class="dream-section section" id="dreamSection" hidden>
+        <div class="section__inner">
+          <span class="section-kicker">самое важное</span>
+          <h2>✨ Расскажи мне о свадьбе своей мечты ✨</h2>
+          <div class="prompt-cloud" aria-label="Подсказки">
+            <span>Какая свадьба тебе нравится?</span>
+            <span>Какое предложение ты бы хотела?</span>
+            <span>Какие цвета нравятся?</span>
+            <span>Что обязательно должно быть?</span>
+            <span>Что точно не нравится?</span>
+            <span>О чем ты мечтаешь?</span>
+          </div>
+          <label class="dream-field">
+            <span>Твои мысли</span>
+            <textarea
+              id="dreamComment"
+              rows="8"
+              placeholder="Напиши всё, что хочется: настроение, цвета, место, музыка, платье, гости, традиции, маленькие детали..."
+            ></textarea>
+          </label>
+          <button class="btn btn--submit" id="submitAnswers" type="button">💖 Отправить ответы 💖</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="final-section section" id="finalSection" hidden>
+        <div class="section__inner section__inner--final">
+          <div class="heart-hug" aria-hidden="true">
+            <span class="heart-hug__heart">❤</span>
+            <span class="heart-hug__cat">🐱</span>
+          </div>
+          <h2>Спасибо ❤️</h2>
+          <p>
+            Теперь я знаю немного больше о свадьбе нашей мечты. Я обязательно всё внимательно прочитаю
+            и постараюсь сделать этот день особенным для нас.
+          </p>
+          <p class="love-type" id="loveType"></p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="romantic-modal" id="romanticModal">
+      <div class="romantic-modal__body" id="modalBody"></div>
+    </dialog>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffe0ec" />
+    <title>Админка ответов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <main class="admin-app">
+      <section class="login-panel" id="loginPanel">
+        <div class="brand-mark" aria-hidden="true">🐱💍</div>
+        <h1>Панель ответов</h1>
+        <p>Введите пароль, чтобы открыть сохранённые мечты и выбранные даты.</p>
+        <form class="login-form" id="loginForm">
+          <label>
+            <span>Пароль</span>
+            <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Введите пароль" />
+          </label>
+          <button type="submit">Войти</button>
+          <p class="status" id="loginStatus" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <header class="dashboard-header">
+          <div>
+            <span class="kicker">Firestore</span>
+            <h1>Ответы на предложение</h1>
+          </div>
+          <div class="toolbar">
+            <button id="refreshButton" type="button">Обновить</button>
+            <button id="exportJsonButton" type="button">JSON</button>
+            <button id="exportCsvButton" type="button">CSV</button>
+          </div>
+        </header>
+
+        <div class="stats">
+          <article>
+            <span id="totalCount">0</span>
+            <p>записей</p>
+          </article>
+          <article>
+            <span id="lastDate">—</span>
+            <p>последняя дата</p>
+          </article>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Комментарий</th>
+                <th>Устройство</th>
+                <th>Время</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody id="answersBody"></tbody>
+          </table>
+        </div>
+        <p class="status" id="dashboardStatus" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <dialog class="answer-dialog" id="answerDialog">
+      <div class="answer-dialog__content">
+        <button class="dialog-close" id="dialogClose" type="button" aria-label="Закрыть">×</button>
+        <h2>Полный ответ</h2>
+        <pre id="answerDetails"></pre>
+      </div>
+    </dialog>
+
+    <script type="module" src="admin.js"></script>
+  </body>
+</html>
