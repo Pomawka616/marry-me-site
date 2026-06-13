@@ -47,7 +47,7 @@ const showApp = async () => {
   elements.app.removeAttribute("aria-hidden");
   elements.app.classList.add("is-ready");
   await wait(450);
-  await typeText(elements.lineOne, "Привет, лисенок ❤️", 46);
+  await typeText(elements.lineOne, "Привет, солнышко ❤️", 46);
   await wait(260);
   await typeText(elements.lineTwo, "У меня есть один очень важный вопрос...", 36);
   elements.questionTitle.classList.add("is-visible");
@@ -71,24 +71,6 @@ const createFloatingStickers = () => {
     item.style.setProperty("--delay", `${Math.random() * -5}s`);
     elements.floatLayer.append(item);
   }
-};
-
-const enableParallax = () => {
-  const target = document.querySelector("[data-parallax]");
-  const update = (x, y) => {
-    const strength = Number(target.dataset.parallax);
-    target.style.transform = `rotateX(${y * strength}deg) rotateY(${-x * strength}deg)`;
-  };
-
-  window.addEventListener("pointermove", (event) => {
-    const x = event.clientX - window.innerWidth / 2;
-    const y = event.clientY - window.innerHeight / 2;
-    update(x, y);
-  });
-
-  window.addEventListener("deviceorientation", (event) => {
-    update(event.gamma || 0, event.beta || 0);
-  });
 };
 
 const randomNoButtonPosition = () => {
@@ -356,5 +338,4 @@ elements.modal.addEventListener("click", (event) => {
 });
 
 createFloatingStickers();
-enableParallax();
 showApp();
