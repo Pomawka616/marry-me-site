@@ -228,7 +228,6 @@ button {
 
 .proposal-shell {
   width: min(100%, 43rem);
-  perspective: 1100px;
 }
 
 .proposal-card {
